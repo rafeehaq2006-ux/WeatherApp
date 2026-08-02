@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "deploy": "gh-pages -d dist"
+    
   },
   "repository": {
     "type": "git",
@@ -17,9 +20,10 @@
   "bugs": {
     "url": "https://github.com/rafeehaq2006-ux/WeatherApp/issues"
   },
-  "homepage": "https://github.com/rafeehaq2006-ux/WeatherApp#readme",
+  "homepage": "https://rafeehaq2006-ux.github.io/WeatherApp",
   "devDependencies": {
     "css-loader": "^7.1.4",
+    "gh-pages": "^6.3.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.8",
     "style-loader": "^4.0.0",
