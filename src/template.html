@@ -24,26 +24,9 @@
                     </div>
 
                     <div class="current-main">
+                        <div class="weather-icon" aria-label="Weather icon area">
+                        </div>
                         <div class="temperature"></div>
-                        <div class="condition-details">
-                            <p>Feels like 26°C</p>
-                            <p>Clear skies</p>
-                        </div>
-                    </div>
-
-                    <div class="current-meta">
-                        <div class="meta-card">
-                            <span>Humidity</span>
-                            <strong>58%</strong>
-                        </div>
-                        <div class="meta-card">
-                            <span>Wind</span>
-                            <strong>12 km/h</strong>
-                        </div>
-                        <div class="meta-card">
-                            <span>Pressure</span>
-                            <strong>1012 hPa</strong>
-                        </div>
                     </div>
                 </div>
 
@@ -51,21 +34,21 @@
                     <div class="summary-card">
                         <h2>Today</h2>
                         <div class="summary-grid">
-                            <div>
+                            <div class="summaryCard">
                                 <span>Sunrise</span>
-                                <strong>06:10</strong>
+                                <div id="sunrise"></div>
                             </div>
-                            <div>
+                            <div class="summaryCard">
                                 <span>Sunset</span>
-                                <strong>20:20</strong>
+                                <div id="sunset"></div>
                             </div>
-                            <div>
+                            <div class="summaryCard">
                                 <span>High</span>
-                                <strong>28°C</strong>
+                                <div id="high"></div>
                             </div>
-                            <div>
+                            <div class="summaryCard">
                                 <span>Low</span>
-                                <strong>18°C</strong>
+                                <div id="low"></div>
                             </div>
                         </div>
                     </div>
@@ -73,36 +56,6 @@
                     <div class="hourly-card">
                         <h3>Hourly Forecast</h3>
                         <div class="hourly-scroll">
-                            <div class="hour-slot">
-                                <span>06:00</span>
-                                <strong>18°C</strong>
-                                <small>Cloudy</small>
-                            </div>
-                            <div class="hour-slot">
-                                <span>09:00</span>
-                                <strong>21°C</strong>
-                                <small>Sunny</small>
-                            </div>
-                            <div class="hour-slot">
-                                <span>12:00</span>
-                                <strong>24°C</strong>
-                                <small>Clear</small>
-                            </div>
-                            <div class="hour-slot">
-                                <span>15:00</span>
-                                <strong>26°C</strong>
-                                <small>Sunny</small>
-                            </div>
-                            <div class="hour-slot">
-                                <span>18:00</span>
-                                <strong>23°C</strong>
-                                <small>Partly Cloudy</small>
-                            </div>
-                            <div class="hour-slot">
-                                <span>21:00</span>
-                                <strong>20°C</strong>
-                                <small>Clear</small>
-                            </div>
                         </div>
                     </div>
                 </div>

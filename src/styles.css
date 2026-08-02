@@ -165,6 +165,21 @@ body::after {
     color: #dff8ff;
 }
 
+.weather-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    flex-shrink: 0;
+}
+
+.weather-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
 .current-main {
     display: flex;
     justify-content: space-between;
@@ -215,6 +230,10 @@ body::after {
     padding: 20px 24px;
 }
 
+.hourly-card {
+    overflow: hidden;
+}
+
 .summary-card h2,
 .hourly-card h3 {
     margin: 0;
@@ -227,27 +246,47 @@ body::after {
     margin-top: 14px;
 }
 
-.summary-grid div {
+.summary-grid .summaryCard {
     background: rgba(255, 255, 255, 0.09);
-    padding: 12px;
+    padding: 14px 12px;
     border-radius: 14px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    min-height: 92px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
 }
 
 .summary-grid span,
 .hourly-card h3 {
     color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.summary-grid .summaryCard div {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
 }
 
 .hourly-scroll {
     display: flex;
     gap: 12px;
+    max-width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
     padding: 8px 2px 6px;
     margin-top: 14px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+    cursor: grab;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
+    flex-wrap: nowrap;
 }
 
 .hourly-scroll::-webkit-scrollbar {
@@ -259,17 +298,26 @@ body::after {
     border-radius: 999px;
 }
 
+.hourly-scroll:active {
+    cursor: grabbing;
+}
+
 .hour-slot {
-    min-width: 110px;
+    min-width: 118px;
+    width: 118px;
+    min-height: 120px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
     border-radius: 16px;
-    padding: 14px;
+    padding: 12px 10px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 6px;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: transform 0.2s ease, background 0.2s ease;
+    flex-shrink: 0;
 }
 
 .hour-slot:hover {
@@ -277,17 +325,33 @@ body::after {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.1));
 }
 
-.hour-slot span {
+.hour-slot .time,
+.hour-slot .temperature,
+.hour-slot .condition {
+    width: 100%;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hour-slot .time {
     color: var(--muted);
     font-size: 0.9rem;
+    font-weight: 600;
 }
 
-.hour-slot strong {
-    font-size: 1.15rem;
+.hour-slot .temperature {
+    font-size: 1.05rem;
+    font-weight: 700;
 }
 
-.hour-slot small {
+.hour-slot .condition {
     color: var(--muted);
+    font-size: 0.82rem;
+    min-height: 2.4em;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 @media (max-width: 700px) {
