@@ -1,0 +1,311 @@
+:root {
+    color-scheme: dark;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    --bg-deep: #06111f;
+    --bg-mid: #153a5e;
+    --panel: rgba(255, 255, 255, 0.12);
+    --panel-strong: rgba(255, 255, 255, 0.2);
+    --text: #f7fbff;
+    --muted: #b5c8db;
+    --accent: #6ed8ff;
+    --accent-strong: #3ba7ff;
+    --shadow: 0 20px 50px rgba(2, 8, 23, 0.35);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background:
+        radial-gradient(circle at top left, rgba(110, 216, 255, 0.25), transparent 35%),
+        linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-mid) 100%);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 24px;
+}
+
+body::before,
+body::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+body::before {
+    width: 260px;
+    height: 260px;
+    background: var(--accent);
+    top: -80px;
+    right: -40px;
+}
+
+body::after {
+    width: 320px;
+    height: 320px;
+    background: #7e6dff;
+    bottom: -120px;
+    left: -100px;
+}
+
+.app-container {
+    width: min(100%, 1050px);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    position: relative;
+    z-index: 1;
+}
+
+.search-bar {
+    display: flex;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(18px);
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 13px 16px;
+    border-radius: 999px;
+    font-size: 1rem;
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.16);
+    transition: all 0.2s ease;
+}
+
+.search-bar input:focus {
+    background: rgba(255, 255, 255, 0.22);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.search-bar input::placeholder {
+    color: var(--muted);
+}
+
+.search-bar button {
+    border: none;
+    border-radius: 999px;
+    padding: 0 20px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+    color: #042642;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 10px 24px rgba(59, 167, 255, 0.3);
+}
+
+.search-bar button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 28px rgba(59, 167, 255, 0.4);
+}
+
+.todays-weather {
+    display: grid;
+    gap: 20px;
+}
+
+.current-weather-card,
+.summary-card,
+.hourly-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08));
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(18px);
+}
+
+.current-weather-card {
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.weather-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.city-name {
+    margin: 0;
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.weather-date {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.condition-badge {
+    background: rgba(255, 255, 255, 0.16);
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+    color: #dff8ff;
+}
+
+.current-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 6px 0 2px;
+}
+
+.temperature {
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.condition-details p {
+    margin: 4px 0;
+    color: var(--muted);
+}
+
+.current-meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.meta-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 14px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.meta-card span {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.today-summary {
+    display: grid;
+    gap: 20px;
+}
+
+.summary-card,
+.hourly-card {
+    padding: 20px 24px;
+}
+
+.summary-card h2,
+.hourly-card h3 {
+    margin: 0;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.summary-grid div {
+    background: rgba(255, 255, 255, 0.09);
+    padding: 12px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.summary-grid span,
+.hourly-card h3 {
+    color: var(--muted);
+}
+
+.hourly-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 8px 2px 6px;
+    margin-top: 14px;
+}
+
+.hourly-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.hourly-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+}
+
+.hour-slot {
+    min-width: 110px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+    border-radius: 16px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.hour-slot:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.1));
+}
+
+.hour-slot span {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.hour-slot strong {
+    font-size: 1.15rem;
+}
+
+.hour-slot small {
+    color: var(--muted);
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 16px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+    }
+
+    .current-main {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .current-meta,
+    .summary-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
