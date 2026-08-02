@@ -23,11 +23,10 @@ async function recievedata(location) {
         const response = await fetch(api);
         const data = await response.json();
         const now = new Date(data.currentConditions.datetimeEpoch * 1000);
-        let currentTime = now.getHours();
-        console.log(data);
+        let currentTime = now.getHours() + data.tzoffset;
+        
         return {
             address: data.resolvedAddress,
-            currentTime: currentTime,
             temp: data.currentConditions.temp,
             tempmax: data.days[0].tempmax,
             tempmin: data.days[0].tempmin,
@@ -59,7 +58,7 @@ async function updateData(location = "London") {
             throw new Error("Unable to fetch weather data.");
         }else{
             errorMessage.textContent = "";
-            console.log(data);
+        
             const now = new Date();
             if (city) {
                 city.textContent = capitalize(data.address) || "London";
